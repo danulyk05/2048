@@ -82,6 +82,7 @@ function hasEmptyTitle() {
   return false;
 };
 
+
 function setRandomTwo() {
   if (!hasEmptyTitle()) {
     return;
@@ -94,7 +95,9 @@ function setRandomTwo() {
     const c = Math.floor(Math.random() * columns);
 
     if (field[r][c] === 0) {
-      field[r][c] = 2;
+      const value = Math.random() < 0.1 ? 4 : 2;
+
+      field[r][c] = value;
       renderField();
 
       found = true;
@@ -131,6 +134,8 @@ function moved(row) {
 
   return newRow;
 };
+
+
 
 function movedLeft() {
   const prevField = JSON.parse(JSON.stringify(field));
